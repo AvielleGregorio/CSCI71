@@ -132,8 +132,8 @@ def is_balanced(input_string):
         return False
     
 
-def evaluate(s):
-    content = s[1:-1]
+def evaluate(input_string):
+    content = input_string[1:-1]
 
     def process(tokens):
         res = ""
@@ -184,19 +184,19 @@ def main2():
     try:
         with open("input.txt", "r") as file:
             for line in file:
-                s = line.strip()
-                if not s: continue
+                input_string = line.strip()
+                if not input_string: continue
                 
                 # is_balanced prints for main2
                 original_stdout = sys.stdout
                 sys.stdout = None
-                valid = is_balanced(s)
+                valid = is_balanced(input_string)
                 sys.stdout = original_stdout
                 
                 if valid:
-                    print(f"{s} - Resulting number of x's: {evaluate(s)}")
+                    print(f"{input_string} - Resulting number of x's: {evaluate(input_string)}")
                 else:
-                    print(f"{s} - Invalid string.")
+                    print(f"{input_string} - Invalid string.")
     except FileNotFoundError: pass
 
 
